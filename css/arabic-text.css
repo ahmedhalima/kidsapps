@@ -1,0 +1,6 @@
+/* Arabic reading font (Amiri). Loaded after components and games so it overrides button and option fonts */
+.rw {
+  font-family:Amiri,Cairo,serif;
+  font-size:36px;
+  line-height:1.7
+}

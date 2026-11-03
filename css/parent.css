@@ -1,0 +1,20 @@
+/* Parent area (full page, separate from the child screens) */
+#par {
+  display:none;
+  min-height:100vh
+}
+
+body.pm #top,body.pm #app,body.pm #ov {
+  display:none
+}
+
+body.pm #par {
+  display:block
+}
+
+body.pm {
+  --card:#fff;
+  --ink:#212529;
+  background:#f1f3f5;
+  color:#212529
+}

@@ -1,0 +1,95 @@
+/* Buttons, tiles, cards, grid and the overlay box */
+.pill,.btn {
+  background:var(--card);
+  border:0;
+  border-radius:30px;
+  padding:8px 16px;
+  font:800 18px Cairo,Tahoma,sans-serif;
+  color:var(--ink);
+  box-shadow:0 4px 0 rgba(0,0,0,.15);
+  cursor:pointer
+}
+
+.btn:active {
+  transform:translateY(3px)
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:14px
+}
+
+.tile {
+  border:0;
+  border-radius:28px;
+  padding:20px 8px;
+  color:#fff;
+  font:800 20px Cairo,Tahoma,sans-serif;
+  box-shadow:0 8px 0 rgba(0,0,0,.18);
+  cursor:pointer;
+  animation:bob 3s ease-in-out infinite
+}
+
+.tile:active {
+  transform:translateY(5px)
+}
+
+.tile b {
+  display:block;
+  font-size:56px;
+  line-height:1.2
+}
+
+@keyframes bob {
+  50% {
+    transform:translateY(-6px)
+  }
+}
+
+.card {
+  background:var(--card);
+  border-radius:22px;
+  padding:10px 4px;
+  box-shadow:0 5px 0 rgba(0,0,0,.12);
+  cursor:pointer;
+  font-weight:800
+}
+
+.card .L {
+  font-size:44px;
+  color:#ff5d8f
+}
+
+.card .E {
+  font-size:30px
+}
+
+.card small {
+  display:block;
+  font-size:14px
+}
+
+.card.lock {
+  opacity:.4
+}
+
+.ov {
+  position:fixed;
+  inset:0;
+  background:rgba(30,20,70,.88);
+  display:flex;
+  overflow:auto;
+  z-index:50;
+  padding:20px
+}
+
+.box {
+  background:var(--card);
+  border-radius:28px;
+  padding:24px;
+  max-width:420px;
+  width:100%;
+  text-align:center;
+  margin:auto
+}

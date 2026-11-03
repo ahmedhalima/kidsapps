@@ -1,0 +1,112 @@
+/* Quiz options, memory cards, bubbles, palettes and game animations */
+.opts {
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:18px
+}
+
+.opt {
+  min-width:110px;
+  font-size:46px;
+  padding:14px 20px;
+  border-radius:26px
+}
+
+.opt.good {
+  background:#7be07b;
+  color:#fff
+}
+
+.opt.bad {
+  background:#ff9a9a;
+  animation:sh .3s
+}
+
+@keyframes sh {
+  25% {
+    transform:translateX(-8px)
+  }
+  75% {
+    transform:translateX(8px)
+  }
+}
+
+.pal {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:10px
+}
+
+.sw {
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:4px solid #fff;
+  box-shadow:0 3px 0 rgba(0,0,0,.2);
+  cursor:pointer
+}
+
+.sw.on {
+  outline:4px solid #333
+}
+
+svg .p {
+  stroke:#444;
+  stroke-width:3;
+  cursor:pointer
+}
+
+.mem {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  max-width:420px;
+  margin:auto
+}
+
+.mc {
+  aspect-ratio:1;
+  border:0;
+  border-radius:18px;
+  font-size:44px;
+  background:#ff8f3c;
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 5px 0 rgba(0,0,0,.2)
+}
+
+.mc.up {
+  background:var(--card)
+}
+
+@keyframes br {
+  0%,100% {
+    transform:scale(.6)
+  }
+  50% {
+    transform:scale(1.15)
+  }
+}
+
+.bb {
+  position:absolute;
+  bottom:-70px;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  border:0;
+  font-size:34px;
+  background:rgba(255,255,255,.85);
+  animation:up 5s linear forwards;
+  cursor:pointer
+}
+
+@keyframes up {
+  to {
+    bottom:105%
+  }
+}

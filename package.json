@@ -1,0 +1,12 @@
+{
+  "name": "kids-world",
+  "version": "1.0.0",
+  "description": "Arabic learning games site for kids (plain HTML/CSS/JS, no build step needed)",
+  "private": true,
+  "scripts": {
+    "test": "node tests/smoke.js",
+    "build": "node scripts/build-single.js",
+    "serve": "python3 -m http.server 8080"
+  },
+  "license": "UNLICENSED"
+}

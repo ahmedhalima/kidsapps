@@ -41,3 +41,6 @@ Thumbs.db
 .idea/
 *.swp
 *.log
+
+# Build output
+dist/

@@ -1,0 +1,43 @@
+/* Printable worksheets and print rules */
+.pg3 {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px
+}
+
+.pg {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:6px;
+  text-align:center
+}
+
+.pc {
+  padding:4px;
+  border-bottom:2px dashed #aaa;
+  font-size:28px
+}
+
+.tr {
+  font-size:48px;
+  color:transparent;
+  -webkit-text-stroke:1.5px #777;
+  margin:0 6px
+}
+
+@media print {
+  body.pm {
+    background:#fff!important
+  }
+}
+
+@media print {
+  #top,#app,.np {
+    display:none!important
+  }
+  .ov {
+    position:static!important;
+    overflow:visible!important;
+    background:#fff!important
+  }
+}
