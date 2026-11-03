@@ -1,0 +1,43 @@
+# ===== Secrets: never commit these =====
+.env
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+credentials.json
+credentials*.json
+service-account*.json
+secrets.*
+*secret*.json
+*apikey*
+*api-key*
+*api_key*
+.aws/
+.ssh/
+.npmrc
+.netrc
+config.local.*
+*.local
+
+# ===== Dependencies / build =====
+node_modules/
+dist/
+build/
+.cache/
+
+# ===== OS / editor =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.log
