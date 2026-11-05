@@ -2,7 +2,7 @@
 //   node tests/smoke.js            -> pass/fail
 //   node tests/smoke.js --dump out.json  -> also dump the rendered HTML of every screen (used to compare refactors)
 const fs = require('fs'), path = require('path'), { makeContext, load, vm } = require('./harness');
-const root = path.join(__dirname, '..');
+const root = path.join(__dirname, '..', 'public');
 const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const files = [...html.matchAll(/<script src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const scripts = files.map(f => [f, fs.readFileSync(path.join(root, f), 'utf8')]);

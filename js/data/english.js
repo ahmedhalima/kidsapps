@@ -1,4 +1,0 @@
-/* English vocabulary data */
-const EN=P('A,Apple,🍎;B,Ball,⚽;C,Cat,🐱;D,Dog,🐶;E,Egg,🥚;F,Fish,🐟;G,Grapes,🍇;H,Hat,🎩;I,Ice cream,🍦;J,Juice,🧃;K,Kite,🪁;L,Lion,🦁;M,Moon,🌙;N,Nose,👃;O,Orange,🍊;P,Pig,🐷;Q,Queen,👑;R,Rabbit,🐰;S,Sun,☀️;T,Tree,🌳;U,Umbrella,☂️;V,Van,🚐;W,Watch,⌚;X,Xylophone,🎹;Y,Yo-yo,🪀;Z,Zebra,🦓');
-
-const ENT=[['Animals','🐾','dog,🐶;cat,🐱;cow,🐮;horse,🐴;fish,🐟;bird,🐦;lion,🦁;duck,🦆'],['Fruits','🍎','apple,🍎;banana,🍌;grapes,🍇;orange,🍊;mango,🥭;strawberry,🍓;watermelon,🍉;lemon,🍋'],['Colors','🎨','red,🔴;orange,🟠;yellow,🟡;green,🟢;blue,🔵;purple,🟣;brown,🟤;black,⚫'],['Family','👨‍👩‍👧','mom,👩;dad,👨;baby,👶;grandma,👵;grandpa,👴;boy,👦;girl,👧'],['Body','🧍','eye,👁️;ear,👂;nose,👃;mouth,👄;hand,✋;foot,🦶;tooth,🦷'],['Numbers','🔢','one,1️⃣;two,2️⃣;three,3️⃣;four,4️⃣;five,5️⃣;six,6️⃣;seven,7️⃣;eight,8️⃣;nine,9️⃣'],['Sentences','💬','I see a cat.,🐱;I like apples.,🍎;This is my mom.,👩;The sun is hot.,☀️;I can run.,🏃;Good morning!,🌅']];

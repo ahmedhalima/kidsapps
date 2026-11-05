@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>إعادة تعيين كلمة المرور - عالم الصغار</title>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<main class="auth-card">
+  <img class="logo" src="assets/images/logo.svg" alt="عالم الصغار">
+  <h1>كلمة مرور جديدة</h1>
+  <div id="msg" role="alert"></div>
+  <form id="f-reset">
+    <label for="p1">كلمة المرور الجديدة (٨ أحرف على الأقل، حروف وأرقام)</label>
+    <div class="pw"><input id="p1" type="password" autocomplete="new-password" required minlength="8" dir="ltr"><button type="button" data-toggle="p1" aria-label="إظهار">👁️</button></div>
+    <div class="meter"><i id="meter"></i></div>
+    <label for="p2">أعد كتابتها</label>
+    <input id="p2" type="password" autocomplete="new-password" required dir="ltr">
+    <button class="primary" type="submit">حفظ كلمة المرور</button>
+  </form>
+  <a class="link hidden" id="to-login" href="login.html">تسجيل الدخول ←</a>
+</main>
+<script src="js/shared/api.js"></script>
+<script src="js/auth/reset.js"></script>
+</body>
+</html>

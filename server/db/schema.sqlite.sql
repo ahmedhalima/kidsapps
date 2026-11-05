@@ -1,0 +1,65 @@
+-- SQLite twin of schema.mysql.sql. Used by the automated tests (no MySQL needed to run them).
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT NOT NULL UNIQUE,
+  name TEXT NOT NULL,
+  password_hash TEXT NOT NULL,
+  role TEXT NOT NULL DEFAULT 'parent',
+  status TEXT NOT NULL DEFAULT 'active',
+  failed_attempts INTEGER NOT NULL DEFAULT 0,
+  locked_until INTEGER NOT NULL DEFAULT 0,
+  last_login_at INTEGER NULL,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS sessions (
+  id TEXT NOT NULL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at INTEGER NOT NULL,
+  expires_at INTEGER NOT NULL,
+  elevated_until INTEGER NOT NULL DEFAULT 0,
+  ip TEXT NULL,
+  user_agent TEXT NULL
+);
+CREATE TABLE IF NOT EXISTS password_resets (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  token_hash TEXT NOT NULL UNIQUE,
+  expires_at INTEGER NOT NULL,
+  used_at INTEGER NULL,
+  created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS children (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  birth_date TEXT NULL,
+  avatar TEXT NOT NULL DEFAULT '🧒',
+  notes TEXT NULL,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL,
+  deleted_at INTEGER NULL
+);
+CREATE TABLE IF NOT EXISTS child_progress (
+  child_id INTEGER NOT NULL PRIMARY KEY REFERENCES children(id) ON DELETE CASCADE,
+  data TEXT NOT NULL,
+  version INTEGER NOT NULL DEFAULT 1,
+  stars INTEGER NOT NULL DEFAULT 0,
+  updated_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS daily_stats (
+  child_id INTEGER NOT NULL REFERENCES children(id) ON DELETE CASCADE,
+  stat_day TEXT NOT NULL,
+  minutes INTEGER NOT NULL DEFAULT 0,
+  stars INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (child_id, stat_day)
+);
+CREATE TABLE IF NOT EXISTS audit_log (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NULL,
+  action TEXT NOT NULL,
+  detail TEXT NULL,
+  ip TEXT NULL,
+  created_at INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS settings (k TEXT NOT NULL PRIMARY KEY, v TEXT NOT NULL);

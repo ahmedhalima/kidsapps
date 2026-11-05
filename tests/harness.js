@@ -1,6 +1,6 @@
 // Minimal fake browser so the app's scripts can be loaded and every screen rendered in Node (no dependencies).
 const vm = require('vm');
-function makeContext() {
+function makeContext(extra = {}) {
   let seed = 12345;
   const rnd = () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
   const M = Object.create(Math); M.random = rnd;
@@ -40,7 +40,7 @@ function makeContext() {
   const doc = {
     body: { classList: { add() {}, remove() {} } }, hidden: false,
     querySelector: (s) => (els[s] = els[s] || (/^#(app|ov|par)$/.test(s) ? rec() : generic())),
-    createElement: () => generic(), execCommand: () => true,
+    createElement: () => generic(), createTextNode: () => generic(), execCommand: () => true, addEventListener() {},
   };
   const ctx = {
     console, setTimeout: () => 0, setInterval: () => 0, clearInterval() {}, Math: M, Date: FixedDate, JSON, Object, Array, String, Number, Set, Promise,
@@ -48,7 +48,8 @@ function makeContext() {
     localStorage: { getItem: () => null, setItem() {}, removeItem() {} },
     speechSynthesis: { getVoices: () => [], cancel() {}, speak() {} }, SpeechSynthesisUtterance: function () {},
     XMLSerializer: function () {}, Image: function () {},
-    __reseed() { seed = 12345; }, __els: els,
+    __reseed() { seed = 12345; }, __els: els, addEventListener() {}, sessionStorage: { getItem: () => null, setItem() {}, clear() {} },
+    ...extra,
   };
   ctx.window = ctx; vm.createContext(ctx);
   return ctx;

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تسجيل الدخول - عالم الصغار</title>
+<link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+<main class="auth-card">
+  <img class="logo" src="assets/images/logo.svg" alt="عالم الصغار">
+  <h1 id="title">أهلًا بك</h1>
+  <div class="tabs" id="tabs">
+    <button type="button" data-tab="login" class="on">تسجيل الدخول</button>
+    <button type="button" data-tab="register" id="tab-register">حساب جديد</button>
+  </div>
+  <div id="msg" role="alert"></div>
+
+  <form id="f-login" autocomplete="on">
+    <label for="l-email">البريد الإلكتروني</label>
+    <input id="l-email" type="email" autocomplete="username" required dir="ltr">
+    <label for="l-pass">كلمة المرور</label>
+    <div class="pw"><input id="l-pass" type="password" autocomplete="current-password" required dir="ltr"><button type="button" data-toggle="l-pass" aria-label="إظهار">👁️</button></div>
+    <button class="primary" type="submit">دخول</button>
+    <button class="link" type="button" id="to-forgot">نسيت كلمة المرور؟</button>
+  </form>
+
+  <form id="f-register" class="hidden" autocomplete="on">
+    <label for="r-name">اسمك</label>
+    <input id="r-name" type="text" autocomplete="name" required maxlength="100">
+    <label for="r-email">البريد الإلكتروني</label>
+    <input id="r-email" type="email" autocomplete="username" required dir="ltr">
+    <label for="r-pass">كلمة المرور (٨ أحرف على الأقل، حروف وأرقام)</label>
+    <div class="pw"><input id="r-pass" type="password" autocomplete="new-password" required minlength="8" dir="ltr"><button type="button" data-toggle="r-pass" aria-label="إظهار">👁️</button></div>
+    <div class="meter"><i id="meter"></i></div>
+    <label for="r-pass2">أعد كتابة كلمة المرور</label>
+    <input id="r-pass2" type="password" autocomplete="new-password" required dir="ltr">
+    <button class="primary" type="submit">إنشاء الحساب</button>
+  </form>
+
+  <form id="f-forgot" class="hidden">
+    <p class="hint">اكتب بريدك وسنرسل لك رابطًا لإعادة تعيين كلمة المرور (صالح لساعة واحدة).</p>
+    <label for="f-email">البريد الإلكتروني</label>
+    <input id="f-email" type="email" required dir="ltr">
+    <button class="primary" type="submit">إرسال الرابط</button>
+    <button class="link" type="button" id="to-login">↩️ العودة لتسجيل الدخول</button>
+  </form>
+</main>
+<script src="js/shared/api.js"></script>
+<script src="js/auth/login.js"></script>
+</body>
+</html>
